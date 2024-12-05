@@ -7,35 +7,34 @@ public class HumbertoRomero2025 {
 
     public static void main(String[] args) {
 
-       
-Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         Stack<Integer> resultados = new Stack<>();
         Stack<Integer> deshacer = new Stack<>();
         int resultadoActual = 0;
 
         while (true) {
             System.out.println("Resultado actual: " + resultadoActual);
-            System.out.print("Ingrese un número para sumar (o 'deshacer' para deshacer la última operación, 'salir' para terminar): ");
+            System.out.print("Ingrese un numero para sumar o elija si quiere deshacer  o salir : ");
             String input = scanner.nextLine();
 
             if (input.equalsIgnoreCase("salir")) {
                 break;
             } else if (input.equalsIgnoreCase("deshacer")) {
                 if (!resultados.isEmpty()) {
-                    deshacer.push(resultadoActual); // Guardar el resultado actual antes de deshacer
-                    resultadoActual = resultados.pop(); // Deshacer la última operación
-                    System.out.println("Última operación deshecha. Resultado actual: " + resultadoActual);
+                    deshacer.push(resultadoActual);
+                    resultadoActual = resultados.pop();
+                    System.out.println("ultima operacion deshecha. Resultado actual: " + resultadoActual);
                 } else {
                     System.out.println("No hay operaciones para deshacer.");
                 }
             } else {
                 try {
                     int numero = Integer.parseInt(input);
-                    deshacer.push(resultadoActual); // Guardar el resultado actual antes de realizar la suma
-                    resultadoActual += numero; // Realizar la suma
-                    resultados.push(resultadoActual); // Almacenar el nuevo resultado
+                    deshacer.push(resultadoActual);
+                    resultadoActual += numero;
+                    resultados.push(resultadoActual);
                 } catch (NumberFormatException e) {
-                    System.out.println("Por favor, ingrese un número válido.");
+                    System.out.println("Por favor, ingrese un numero valido.");
                 }
             }
         }
@@ -44,7 +43,6 @@ Scanner scanner = new Scanner(System.in);
         scanner.close();
     }
 }
-
 
         
     
